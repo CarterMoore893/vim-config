@@ -1,0 +1,19 @@
+colorscheme elflord "a good standard colorscheme
+
+set number "number lines
+
+syntax on "enable syntax
+
+set showcmd " show command line on bottom 
+set lazyredraw "redraw when needed
+set showmatch " highlight string matches
+
+set tabstop=4 " number of spaces per tab
+set softtabstop=4 " number of spaces a tab is visualized as
+set expandtab " tabs are spaces
+
+set foldenable " enable folding
+set foldlevelstart=10 "opens most folds by default
+set foldnestmax=10 "10 nested folds max
+
+inoremap jj <esc> " set jj as escape when inserting 

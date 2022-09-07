@@ -1,0 +1,53 @@
+" SET COMMANDS
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set exrc " execute vimrc in local directory if present; good for custom
+set guicursor=
+set relativenumber
+set nu
+set nohlsearch
+set noerrorbells
+set hidden " Allow buffers to be hidden on close instead of deloaded
+set nowrap
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+set incsearch
+set termguicolors
+set scrolloff=8
+set signcolumn=yes
+set colorcolumn=80
+set cmdheight=2 " Give more space for displaying messages
+set updatetime=100 " update the editor every 100 ms (def: 4000)
+
+" PLUGINS
+call plug#begin('~/.vim/plugged')
+Plug 'overcache/NeoSolarized'
+Plug 'nvim-lua/plenary.nvim'
+" NOTE: ripgrep is required for telescope
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+call plug#end()
+
+" EDITOR MODIFIERS & LET COMMANDS
+colorscheme NeoSolarized
+highlight Normal guibg=none 
+let mapleader = " "
+
+" Multifile requirements
+lua require("TSConfig")
+
+" REMAPS
+" mode lhs rhs
+" nnoremap <- (N)ormal mode (NO R)ecursive (E)xecution (MAP)
+nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
+
+" AUTO COMMANDS 
+" Define functions
+" define autogroup
+augroup CMOORE
+    autocmd!
+augroup END

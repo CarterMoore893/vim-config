@@ -30,11 +30,21 @@ Plug 'nvim-lua/plenary.nvim'
 " NOTE: ripgrep is required for telescope
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'neovim/nvim-lspconfig'
+" LSP configuration from https://youtu.be/puWgHa7k3SY
+" nvim-cmp and good QOL plugins
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+
 call plug#end()
 
 " EDITOR MODIFIERS & LET COMMANDS
 colorscheme NeoSolarized
-highlight Normal guibg=none 
+highlight Normal guibg=none
 let mapleader = " "
 
 " Multifile requirements
@@ -45,7 +55,7 @@ lua require("TSConfig")
 " nnoremap <- (N)ormal mode (NO R)ecursive (E)xecution (MAP)
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
 
-" AUTO COMMANDS 
+" AUTO COMMANDS
 " Define functions
 " define autogroup
 augroup CMOORE

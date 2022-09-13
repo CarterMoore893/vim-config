@@ -26,6 +26,7 @@ set updatetime=100 " update the editor every 100 ms (def: 4000)
 " PLUGINS
 call plug#begin('~/.vim/plugged')
 Plug 'overcache/NeoSolarized'
+Plug 'catppuccin/nvim', {'as': 'catppuccin' }
 Plug 'nvim-lua/plenary.nvim'
 " NOTE: ripgrep is required for telescope
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
@@ -43,7 +44,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 call plug#end()
 
 " EDITOR MODIFIERS & LET COMMANDS
-colorscheme NeoSolarized
+colorscheme catppuccin
 highlight Normal guibg=none
 let mapleader = " "
 

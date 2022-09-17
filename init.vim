@@ -44,7 +44,10 @@ Plug 'saadparwaiz1/cmp_luasnip'
 call plug#end()
 
 " EDITOR MODIFIERS & LET COMMANDS
-colorscheme catppuccin
+" colorscheme catppuccin
+lua vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+lua require("catppuccin").setup()
+lua vim.cmd [[colorscheme catppuccin]]
 highlight Normal guibg=none
 let mapleader = " "
 

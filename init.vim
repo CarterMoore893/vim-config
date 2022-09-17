@@ -40,6 +40,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+" Take Tuesday video introduces comment.nvim
+Plug 'numToStr/Comment.nvim'
 
 call plug#end()
 
@@ -64,4 +66,6 @@ nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim
 " define autogroup
 augroup CMOORE
     autocmd!
+    " I think I did this right
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 augroup END

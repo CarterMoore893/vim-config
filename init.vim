@@ -27,8 +27,8 @@ set updatetime=100 " update the editor every 100 ms (def: 4000)
 call plug#begin('~/.vim/plugged')
 Plug 'overcache/NeoSolarized'
 Plug 'catppuccin/nvim', {'as': 'catppuccin' }
+" Telescope requires plenary and $ ripgrep
 Plug 'nvim-lua/plenary.nvim'
-" NOTE: ripgrep is required for telescope
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
@@ -38,8 +38,10 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
+" LuaSnip and its additional friends
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'rafamadriz/friendly-snippets'
 " Take Tuesday video introduces comment.nvim
 Plug 'numToStr/Comment.nvim'
 
@@ -54,12 +56,25 @@ highlight Normal guibg=none
 let mapleader = " "
 
 " Multifile requirements
-lua require("TSConfig")
+lua require("setup")
 
 " REMAPS
 " mode lhs rhs
 " nnoremap <- (N)ormal mode (NO R)ecursive (E)xecution (MAP)
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
+" LuaSnip
+" press <Tab> to expand or jump in a snippet. These can also be mapped separately
+" via <Plug>luasnip-expand-snippet and <Plug>luasnip-jump-next.
+" imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
+" " -1 for jumping backwards.
+" inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+"
+" snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+" snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+
+" For changing choices in choiceNodes (not strictly necessary for a basic setup).
+" imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+" smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 " AUTO COMMANDS
 " Define functions

@@ -19,6 +19,7 @@ require'lspconfig'.clangd.setup{
         vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<CR>", {buffer=0})
         -- Proper rename
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {buffer=0}) --keybindings only available within clangd supported buffer
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { noremap=true, silent=true, buffer=1 }) -- adapted from Github
     end,
 } --connect to clangd
 

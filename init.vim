@@ -25,8 +25,7 @@ set updatetime=100 " update the editor every 100 ms (def: 4000)
 
 " PLUGINS
 call plug#begin('~/.vim/plugged')
-Plug 'overcache/NeoSolarized'
-Plug 'catppuccin/nvim', {'as': 'catppuccin' }
+Plug 'gruvbox-community/gruvbox'
 " Telescope requires plenary and $ ripgrep
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
@@ -48,10 +47,7 @@ Plug 'numToStr/Comment.nvim'
 call plug#end()
 
 " EDITOR MODIFIERS & LET COMMANDS
-" colorscheme catppuccin
-lua vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-lua require("catppuccin").setup()
-lua vim.cmd [[colorscheme catppuccin]]
+colorscheme gruvbox
 highlight Normal guibg=none
 let mapleader = " "
 

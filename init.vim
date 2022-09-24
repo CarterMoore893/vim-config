@@ -25,10 +25,10 @@ set updatetime=100 " update the editor every 100 ms (def: 4000)
 
 " PLUGINS
 call plug#begin('~/.vim/plugged')
-Plug 'overcache/NeoSolarized'
-Plug 'catppuccin/nvim', {'as': 'catppuccin' }
+Plug 'gruvbox-community/gruvbox'
 " Telescope requires plenary and $ ripgrep
 Plug 'nvim-lua/plenary.nvim'
+Plug 'folke/todo-comments.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
@@ -44,14 +44,10 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
 " Take Tuesday video introduces comment.nvim
 Plug 'numToStr/Comment.nvim'
-
 call plug#end()
 
 " EDITOR MODIFIERS & LET COMMANDS
-" colorscheme catppuccin
-lua vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-lua require("catppuccin").setup()
-lua vim.cmd [[colorscheme catppuccin]]
+colorscheme gruvbox
 highlight Normal guibg=none
 let mapleader = " "
 
@@ -62,10 +58,6 @@ lua require("setup")
 " mode lhs rhs
 " nnoremap <- (N)ormal mode (NO R)ecursive (E)xecution (MAP)
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
-" LuaSnip
-" For changing choices in choiceNodes (not strictly necessary for a basic setup).
-" imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-" smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 " AUTO COMMANDS
 " Define functions

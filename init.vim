@@ -29,7 +29,7 @@ Plug 'gruvbox-community/gruvbox'
 " Telescope requires plenary and $ ripgrep
 Plug 'nvim-lua/plenary.nvim'
 Plug 'folke/todo-comments.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 " LSP configuration from https://youtu.be/puWgHa7k3SY
